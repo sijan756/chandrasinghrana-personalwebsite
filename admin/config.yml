@@ -1,7 +1,9 @@
 backend:
   name: github
   repo: sijan756/chandrasinghrana-personalwebsite  # GitHub repo
-  branch: main                                     # branch to commit blogs
+  branch: main
+auth_type: implicit
+  app_id: Ov23libKDOUCFMoOBANf                                     # branch to commit blogs
 
 media_folder: "assets/images"  # uploaded images go here
 public_folder: "/assets/images"
