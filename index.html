@@ -21,7 +21,33 @@
     .item { background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 6px rgba(0,0,0,0.1); width:250px; }
     footer { background:#1a1a1a; color:#fff; text-align:center; padding:20px; }
     @media(max-width:768px){ .list{flex-direction:column;align-items:center;} }
-  </style>
+.header-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap; /* stacks on mobile */
+}
+
+.header-image img {
+  width: 100px; /* adjust size */
+  height: 100px;
+  border-radius: 50%; /* circular photo */
+  object-fit: cover;
+  border: 3px solid #fff; /* optional border */
+}
+
+.header-text h1 {
+  margin: 0;
+  font-size: 2.5em;
+  color: #fff;
+}
+
+.header-text p {
+  margin: 5px 0 0 0;
+  color: #fff;
+}  
+</style>
 </head>
 <body>
   <!-- Header -->
@@ -29,6 +55,10 @@
     <div class="container">
       <h1>Chandra Singh Rana</h1>
       <p>Aspiring Tech Enthusiast | Solutions Architect & DevOps</p>
+<div class="header-image">
+      <img src="chandra-photo.jpg" alt="Chandra Singh Rana" />
+    </div>
+  </div>
       <nav>
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
