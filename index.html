@@ -6,77 +6,70 @@
   <title>Chandra Singh Rana – Tech Portfolio</title>
   <link rel="icon" href="Chandra-Rana-Logo.ico" type="image/x-icon">
   <style>
+    /* --- General Styles --- */
     body { font-family: Arial, sans-serif; margin:0; padding:0; line-height:1.6; color:#333; background:#f9f9f9; }
     a { color:#1a73e8; text-decoration:none; }
     a:hover { text-decoration:underline; }
     .container { width:90%; max-width:900px; margin:auto; padding:20px; }
-    header { background:#1a1a1a; color:#fff; text-align:center; padding:60px 20px; }
-    header h1 { font-size:2.5em; margin-bottom:10px; }
-    header p { font-size:1.2em; margin-bottom:20px; }
+
+    /* --- Header --- */
+    header { background:#1a1a1a; color:#fff; padding:60px 20px; text-align:center; }
+    .header-flex { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:20px; }
+    .header-image img { width:120px; height:120px; border-radius:50%; object-fit:cover; border:3px solid #fff; }
+    .header-text h1 { margin:0; font-size:2.5em; color:#fff; }
+    .header-text p { margin:5px 0 15px 0; color:#fff; }
     nav a { margin:0 15px; font-weight:bold; color:#fff; }
+
+    /* --- Section Styling --- */
     section { padding:60px 0; }
     section h2 { font-size:2em; text-align:center; margin-bottom:20px; color:#1a1a1a; }
     section p, section ul { text-align:center; max-width:800px; margin:0 auto; }
-    .list { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; }
-    .item { background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 6px rgba(0,0,0,0.1); width:250px; }
+
+    /* --- Cards / Projects / Blogs --- */
+    .list, .blog-preview { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; }
+    .item, .blog-item { background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 6px rgba(0,0,0,0.1); width:250px; transition: transform 0.2s, box-shadow 0.2s; }
+    .item:hover, .blog-item:hover { transform: translateY(-5px); box-shadow:0 8px 15px rgba(0,0,0,0.15); }
+    .blog-item a { font-weight:bold; font-size:1.1em; }
+    .blog-item p { margin:5px 0 0 0; font-size:0.9em; color:#666; }
+
+    /* --- Footer --- */
     footer { background:#1a1a1a; color:#fff; text-align:center; padding:20px; }
-    @media(max-width:768px){ .list{flex-direction:column;align-items:center;} }
-.header-flex {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap; /* stacks on mobile */
-}
 
-.header-image img {
-  width: 100px; /* adjust size */
-  height: 100px;
-  border-radius: 50%; /* circular photo */
-  object-fit: cover;
-  border: 3px solid #fff; /* optional border */
-}
-
-.header-text h1 {
-  margin: 0;
-  font-size: 2.5em;
-  color: #fff;
-}
-
-.header-text p {
-  margin: 5px 0 0 0;
-  color: #fff;
-}  
-</style>
+    /* --- Responsive --- */
+    @media(max-width:768px){ .list, .blog-preview { flex-direction:column; align-items:center; } }
+  </style>
 </head>
 <body>
+
   <!-- Header -->
   <header>
-    <div class="container">
-      <h1>Chandra Singh Rana</h1>
-      <p>Aspiring Tech Enthusiast | Solutions Architect & DevOps</p>
-<div class="header-image">
-      <img src="chandra-photo.jpg" alt="Chandra Singh Rana" />
-    </div>
-  </div>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
+    <div class="container header-flex">
+      <div class="header-image">
+        <img src="assets/images/chandra-photo.jpg" alt="Chandra Singh Rana">
+      </div>
+      <div class="header-text">
+        <h1>Chandra Singh Rana</h1>
+        <p>Aspiring Tech Enthusiast | Solutions Architect & DevOps</p>
+        <nav>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#blogs">Blogs</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
     </div>
   </header>
 
-  <!-- About Section -->
+  <!-- About -->
   <section id="about">
     <div class="container">
       <h2>About Me</h2>
-      <p>Hello! I’m Chandra Singh Rana, an aspiring tech enthusiast focused on cloud solutions, DevOps practices, and scalable architectures. I enjoy building practical projects, automating workflows, and exploring modern cloud technologies to strengthen my skills.</p>
+      <p>Hello! I’m Chandra Singh Rana, focused on cloud solutions, DevOps practices, and scalable architectures.</p>
     </div>
   </section>
 
-  <!-- Skills Section -->
+  <!-- Skills -->
   <section id="skills">
     <div class="container">
       <h2>Skills</h2>
@@ -85,19 +78,19 @@
         <div class="item">DevOps concepts (CI/CD, Docker basics)</div>
         <div class="item">Python scripting for automation</div>
         <div class="item">Git and version control</div>
-        <div class="item">Learning Infrastructure as Code (Terraform)</div>
+        <div class="item">Learning IaC (Terraform)</div>
       </div>
     </div>
   </section>
 
-  <!-- Projects Section -->
+  <!-- Projects -->
   <section id="projects">
     <div class="container">
       <h2>Projects</h2>
       <div class="list">
         <div class="item">
           <h3>Portfolio Website</h3>
-          <p>Hosted on GitHub Pages with a custom domain and responsive design.</p>
+          <p>Hosted on GitHub Pages with responsive design.</p>
         </div>
         <div class="item">
           <h3>AWS Free Tier Experiments</h3>
@@ -105,13 +98,23 @@
         </div>
         <div class="item">
           <h3>Automation Scripts</h3>
-          <p>Developed simple Python scripts to automate routine tasks.</p>
+          <p>Developed Python scripts to automate routine tasks.</p>
         </div>
+      </div>
+
+      <!-- Recent Blogs Preview -->
+      <div id="blogs" class="blog-preview">
+        {% for post in site.posts limit:3 %}
+          <div class="blog-item">
+            <a href="{{ post.url }}">{{ post.title }}</a>
+            <p>{{ post.date | date: "%B %d, %Y" }}</p>
+          </div>
+        {% endfor %}
       </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
+  <!-- Contact -->
   <section id="contact">
     <div class="container">
       <h2>Contact Me</h2>
