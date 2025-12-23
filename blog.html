@@ -1,17 +1,97 @@
----
-layout: default
-title: Blogs
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Blogs – Chandra Singh Rana</title>
+  <link rel="icon" href="Chandra-Rana-Logo.ico" type="image/x-icon">
+  <style>
+    /* --- General Styles --- */
+    body { font-family: Arial, sans-serif; margin:0; padding:0; line-height:1.6; color:#333; background:#f9f9f9; }
+    a { color:#1a73e8; text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    .container { width:90%; max-width:900px; margin:auto; padding:20px; }
 
-<section id="blogs">
-  <div class="container">
-    <h2>All Blogs</h2>
-    <ul>
-      {% for post in site.posts %}
-        <li>
-          <a href="{{ post.url }}">{{ post.title }}</a> - {{ post.date | date: "%B %d, %Y" }}
-        </li>
-      {% endfor %}
-    </ul>
-  </div>
-</section>
+    /* --- Header --- */
+    header { background:#1a1a1a; color:#fff; padding:60px 20px; text-align:center; }
+    .header-flex { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:20px; }
+    .header-image img { width:120px; height:120px; border-radius:50%; object-fit:cover; border:3px solid #fff; }
+    .header-text h1 { margin:0; font-size:2.5em; color:#fff; }
+    .header-text p { margin:5px 0 15px 0; color:#fff; }
+    nav a { margin:0 15px; font-weight:bold; color:#fff; }
+
+    /* --- Blogs Section --- */
+    .blog-preview { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; }
+    .blog-item { background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 6px rgba(0,0,0,0.1); width:250px; transition: transform 0.2s, box-shadow 0.2s; }
+    .blog-item:hover { transform: translateY(-5px); box-shadow:0 8px 15px rgba(0,0,0,0.15); }
+    .blog-item a { font-weight:bold; font-size:1.1em; }
+    .blog-item p { margin:5px 0 0 0; font-size:0.9em; color:#666; }
+
+    /* --- Footer --- */
+    footer { background:#1a1a1a; color:#fff; text-align:center; padding:20px; }
+
+    /* --- Responsive --- */
+    @media(max-width:768px){ .blog-preview { flex-direction:column; align-items:center; } }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-flex">
+      <div class="header-image">
+        <img src="assets/images/chandra-photo.jpg" alt="Chandra Singh Rana">
+      </div>
+      <div class="header-text">
+        <h1>Chandra Singh Rana</h1>
+        <p>Aspiring Tech Enthusiast | Solutions Architect & DevOps</p>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#skills">Skills</a>
+          <a href="index.html#projects">Projects</a>
+          <a href="blog.html">Blogs</a>
+          <a href="index.html#contact">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Blogs Section -->
+  <section id="blogs">
+    <div class="container">
+      <h2>All Blogs</h2>
+      <div class="blog-preview" id="blog-list"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Chandra Singh Rana. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // List of blog posts
+    const posts = [
+      { title: "My First Blog", url: "/blogs/2025-12-19-my-first-blog.html", date: "December 19, 2025" },
+      { title: "Another Blog Post", url: "/blogs/2025-12-20-another-blog.html", date: "December 20, 2025" },
+      { title: "Learning AWS Basics", url: "/blogs/2025-12-21-aws-basics.html", date: "December 21, 2025" }
+      // Add more exported posts here
+    ];
+
+    // Populate blogs
+    const blogListDiv = document.getElementById('blog-list');
+    posts.forEach(post => {
+      const div = document.createElement('div');
+      div.className = 'blog-item';
+      div.innerHTML = `<a href="${post.url}">${post.title}</a><p>${post.date}</p>`;
+      blogListDiv.appendChild(div);
+    });
+  </script>
+</body>
+</html>
